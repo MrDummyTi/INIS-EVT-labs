@@ -33,7 +33,7 @@ function addValueInTable() {
     
     let keys = Object.keys(PersonalMovieDB.movies)
 
-    for (var i = 0, l = keys.length; i < l; i++) {
+    for (let i = 0, length = keys.length; i < length; i++) {
         document.getElementById(i).innerHTML = keys[i]
         document.getElementById(i+3).innerHTML = PersonalMovieDB.movies[keys[i]]
       }
