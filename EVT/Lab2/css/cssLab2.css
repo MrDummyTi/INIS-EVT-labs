@@ -67,18 +67,14 @@ body{
 td{
     width: 350px;
     text-align: center;
+    height: 50px;
+    background-color: rgba(0, 136, 255, 0.50);
 }
 
 table{
     display: inline-block;
     border-collapse: collapse;
 }
-
-tr{
-    height: 50px;
-    background-color: rgba(0, 136, 255, 0.50);
-}
-
 
 .main-pic{
     height: 70%;
@@ -89,6 +85,7 @@ tr{
     margin-top: 1%;
     /* width: 100%;
     height: 150px; */
+    margin-block-end: 10%;
 }
 
 .text-description1{
@@ -120,5 +117,17 @@ tr{
     height: 40px;
     width: 100%;
     background-color: rgb(8, 8, 93);
+
+}
+
+.table2 a{
     color: aliceblue
+}
+
+.Error-center{
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-size: 50px;
+    bottom: 600;
 }
