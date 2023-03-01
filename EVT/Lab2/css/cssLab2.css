@@ -64,8 +64,14 @@ body{
     padding: 0px 0px 0px 120px;
 }
 
+
+/* .poloska{
+    width: 100%;
+} */
+
 td{
-    width: 350px;
+    /* width: 100%; */
+    width: 10000px; 
     text-align: center;
     height: 50px;
     background-color: rgba(0, 136, 255, 0.50);
