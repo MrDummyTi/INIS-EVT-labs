@@ -90,3 +90,26 @@ const shirts = [{
         "back": "shirt_images/default-m-back.png"
     }
 }];
+
+
+for (let i = 0; i < shirts.length; i++) {
+    const frontImage = shirts[i].default.front;
+    console.log(frontImage);
+}
+
+
+const imagesContainer = document.getElementById("shirt-images");
+
+for (let i = 0; i < shirts.length; i++) {
+  const frontImage = "js/" + shirts[i].default.front;
+
+  // Создание нового элемента img
+  const img = document.createElement('img');
+
+  // Установка атрибутов src и alt для изображения
+  img.setAttribute('src', frontImage);
+  img.setAttribute('alt', shirts[i].name);
+
+  // Добавление изображения в контейнер
+  imagesContainer.appendChild(img);
+}
