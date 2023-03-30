@@ -1,0 +1,157 @@
+.contentTShirts {
+    padding: 2% 5% 0 5%;
+    margin: 0 auto;
+
+    &__title {
+        margin: 0px 0px 2% 0px;
+
+        color: rgb(39, 39, 120);
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    &__items {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        justify-items: center;
+
+        grid-gap: 20px;
+
+        // grid-auto-flow: column;
+        // grid-auto-rows: 1fr;
+
+        // column-gap: 30px;
+        // row-gap: 50px;
+
+    }
+
+    &__item {
+
+        border: 5px solid rgb(24, 24, 82);
+        border-radius: 10%;
+        overflow: hidden;
+
+        display: grid;
+        align-items: center;
+        grid-template: auto minmax(40px, auto) minmax(40px, auto) minmax(80px, auto) / 1fr;
+
+
+
+        &_image {
+            // max-width: 100%;
+        }
+
+        &_name {
+            align-items: center;
+            padding-left: 10%;
+
+            font-size: 28px;
+            font-weight: 700;
+            color: rgb(24, 24, 82);
+        }
+
+        &_colors {
+            align-items: center;
+            padding-left: 10%;
+
+            color: rgb(106, 106, 106);
+            font-size: 18px;
+        }
+
+        &_nav {
+
+            .nav__row {
+                display: grid;
+                grid-template: 1fr/ minmax(200px, auto) minmax(200px, auto);
+                justify-items: center;
+            }
+
+            .nav__column {
+                width: 60%;
+            }
+
+        }
+    }
+
+    .quick {
+        // display: none;
+
+        margin: 5% -5.55% 0 -5.55%;
+   
+        // margin: 5% 0 0 0;
+        // border-radius: 30%;
+        background-color: rgb(52, 106, 143);
+        
+        &__views {
+            // display: none;
+        }
+
+        &__view {
+            display: none;
+            // display: grid;
+            grid-template: 1fr/2fr 3fr;
+            height: 280px;
+
+            &_images {
+                width: 500px;
+                display: flex;
+                justify-self: right;
+                & img {
+                    padding: 4% 0 0 0;
+                    // max-width: 100%;
+                    max-height: 260px;
+                }
+            }
+            &_text {
+                color: rgb(24, 24, 82);
+                grid-column: 2/3;
+            }
+
+            &_title {
+                padding: 50px 0 0 0;
+                line-height: 40px;
+                font-size: 30px;
+            }
+
+            &_price {
+                font-size: 20px;
+            }
+
+            &_button {
+                margin: 90px 0 0 0;
+                color: white;
+                font-size: 18px;
+            }
+        }
+    }
+
+
+}
+
+.buttonBlue{
+    background-color: rgb(24, 24, 82);
+    color: white;
+
+    border-radius: 20%;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+
+    & a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &:hover {
+        background-color: rgb(69, 69, 133);
+    }
+
+    &:active {
+        background-color: rgb(52, 52, 180);
+    }
+
+}
+
