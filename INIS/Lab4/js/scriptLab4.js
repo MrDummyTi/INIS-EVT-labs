@@ -91,16 +91,38 @@ for (let i = 0; 2 > i; i++) {
     let button = document.getElementById(`buttonside${i}`);
     button.addEventListener("click", function () {
         fontOrBackPer = i;
-        pictureImage(__numberOfTShirts, fontOrBackPer, ColorTshirtsPer)
+        pictureImage(__numberOfTShirts, fontOrBackPer, ColorTshirtsPer);
+
+
+        // Border для нажатой кнопки
+        for (let i = 0; i < 2; i++) {
+            let buttons = document.getElementById(`buttonside${i}`);
+            buttons.style.border = "none";
+            buttons.style.backgroundColor = "rgb(24, 24, 82)";
+        }
+        button.style.border = "2px solid grey";
+        button.style.backgroundColor = "blue";
+
     });
 }
 
 // событие для тыканья цвета майки
 for (let i = 0; i < arrColorsTShirts.length; i++) {
-    let color = arrColorsTShirts[i]
+    let color = arrColorsTShirts[i];
     let button = document.getElementById(`button${color}`);
     button.addEventListener("click", function () {
         ColorTshirtsPer = color;
-        pictureImage(__numberOfTShirts, fontOrBackPer, ColorTshirtsPer)
+        pictureImage(__numberOfTShirts, fontOrBackPer, ColorTshirtsPer);
+
+
+        // Border для нажатой кнопки
+        for (let i = 0; i < arrColorsTShirts.length; i++) {
+            let buttons = document.getElementById(`button${arrColorsTShirts[i]}`);
+            buttons.style.border = "none"
+        }
+        button.style.border = "2px solid black";
     });
 }
+
+
+
