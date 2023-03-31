@@ -119,11 +119,14 @@ for (let i = 0; i < shirts.length; i++) {
         }
     }
 
-    // console.log(frontImageFont);
-    // console.log(frontImageFont.length);
+
+    // имя
+
     if (shirts[i].name === undefined) {
         shirts[i].name = "Безымянная"
     }
+
+    // количесво
 
     if (shirts[i].colors) {
         colorsHave = Object.keys(shirts[i].colors).length
