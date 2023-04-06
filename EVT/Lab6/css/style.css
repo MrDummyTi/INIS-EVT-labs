@@ -1,0 +1,141 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: rgb(52, 206, 142);
+  /* height: 100px; */
+
+  grid-area: "header";
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+
+.wrapper{
+  min-height: 100%;
+
+  display: grid;
+  grid-template: minmax(100px,auto) 500px minmax(100px, auto) / 1fr;
+
+  grid-template-areas: 
+      "header"
+      "main"
+      "floor"
+    ;
+}
+
+.main{
+  grid-area: "main";
+
+}
+
+.floor{
+  grid-area: "floor";
+  background-color: green;
+}
+
+.ball {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  /* начальное положение мяча */
+  top: 0;
+  left: 50%;
+
+  /* анимация */
+  animation: fall 5s ease-in-out forwards;
+}
+
+/* ключевые кадры анимации */
+@keyframes fall {
+  0%{
+    top: 0;
+  }
+  20%{
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+  40%{
+    top: 450px;
+    scale: 1 1;
+  }
+  41%{
+    top: 465px;
+    scale: 1 0.6;
+  }
+  42%{
+    top: 450px;
+    animation-timing-function: ease-out;
+    scale: 1 1;
+  }
+  50%{
+    top: 250px;
+    animation-timing-function: ease-in;
+  }
+  60%{
+    top: 450px; 
+    scale: 1 1;
+  }
+  61%{
+    top: 460px;
+    scale: 1 0.7;
+  }
+  62%{
+    top: 450px;
+    animation-timing-function: ease-out;
+    scale: 1 1;
+  }
+  70%{
+    top: 335px;
+    animation-timing-function: ease-in;
+  }
+  80%{
+    top: 450px;
+    scale: 1 1;
+  }
+  80.5%{
+    top: 455px;
+    scale: 1 0.8;
+  }
+  81%{
+    top: 450px;
+    animation-timing-function: ease-out;
+    scale: 1 1;
+  }
+  85%{
+    top: 400px;
+    animation-timing-function: ease-in;
+  }
+  90%{
+    top: 450px;
+    animation-timing-function: ease-out;
+  }
+  92%{
+    top: 425px;
+    animation-timing-function: ease-in;
+  }
+  95%{
+    top: 450px;
+    animation-timing-function: ease-out;
+  }
+  97%{
+    top: 435px;
+    animation-timing-function: ease-in;
+  }
+  100%{
+    top: 450px;
+    animation-timing-function: ease-out;
+  }
+}
