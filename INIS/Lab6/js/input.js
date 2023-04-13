@@ -112,7 +112,7 @@ targets.forEach(target => {
   });
 });
 
-let doubleSelected = 0
+var doubleSelected = 0
 
 // Добавляем событие touchend на каждый элемент с классом "target"
 targets.forEach(target => {
@@ -151,25 +151,30 @@ targets.forEach(target => {
   target.addEventListener('touchend', e => {
     const currentTime = new Date().getTime();
     const tapLength = currentTime - lastTouch;
-    if(tapLength < 500 && tapLength > 0) {
+    if(tapLength < 500 && tapLength > 0 && selectedTarget == null) {
       selectedTarget = e.target;
       selectedTarget.style.background = 'yellow';
       selectedTarget.style.zIndex = '1000';
-
-      doubleSelected = 1;
-      target.addEventListener('touchend', e => {
-        const currentTime2 = new Date().getTime();
-        const tapLength2 = currentTime2 - lastTouch;
-        if(tapLength2 < 500 && tapLength2 > 0){
-          doubleSelected = 0;
-        }
-      });
-
+      doubleSelectedfu();
     }
     lastTouch = currentTime;
   });
 });
 
+function doubleSelectedfu(){
+  targets.forEach(target => {
+    let lastTouch2 = 0;
+    doubleSelected = 1;
+    target.addEventListener('touchend', e => {
+      const currentTime2 = new Date().getTime();
+      const tapLength2 = currentTime2 - lastTouch2;
+      if(tapLength2 < 500 && tapLength2 > 0){
+        doubleSelected = 0;
+      }
+    });
+    lastTouch2 = currentTime2;
+  });
+}
 
 
 // Добавляем обработчик события touchstart на весь документ
