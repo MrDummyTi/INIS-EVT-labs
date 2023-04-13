@@ -118,7 +118,7 @@ var doubleSelected = 0
 targets.forEach(target => {
   target.addEventListener('touchend', e => {
     // Если выбранный элемент не равен null, то сбрасываем его свойства
-    if (selectedTarget != null || doubleSelected == 0) {
+    if (selectedTarget != null && doubleSelected == 0) {
       selectedTarget.style.zIndex = 'auto';
       selectedTarget.style.background = 'red';
       selectedTarget = null;
