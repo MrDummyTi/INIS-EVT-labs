@@ -55,7 +55,7 @@ h1 {
   left: 50%;
 
   /* анимация */
-  animation: fall 5s ease-in-out forwards;
+  animation: fall 6s ease-in-out forwards;
 }
 
 /* ключевые кадры анимации */

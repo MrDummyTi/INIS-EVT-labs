@@ -91,3 +91,80 @@ document.addEventListener('keydown', e => {
     selectedTarget = null;
   }
 });
+
+// ------------------6 lab
+targets.forEach(target => {
+  target.addEventListener('touchstart', e => {
+    // Запоминаем начальное местоположение касания
+    const touch = e.touches[0];
+    mouseX = touch.clientX;
+    mouseY = touch.clientY;
+
+    // Устанавливаем текущий выбранный элемент
+    selectedTarget = e.target;
+    selectedTarget.style.zIndex = '1000';
+    selectedTarget.style.background = 'green';
+
+    // Запоминаем начальное положение элемента
+    mouseLastX = selectedTarget.style.left;
+    mouseLastY = selectedTarget.style.top;
+  });
+});
+
+// Добавляем событие touchend на каждый элемент с классом "target"
+targets.forEach(target => {
+  target.addEventListener('touchend', e => {
+    // Если выбранный элемент не равен null, то сбрасываем его свойства
+    if (selectedTarget) {
+      selectedTarget.style.zIndex = 'auto';
+      selectedTarget.style.background = 'red';
+      selectedTarget = null;
+    }
+  });
+});
+
+// Добавляем событие touchmove на весь документ
+document.addEventListener('touchmove', e => {
+  // Проверяем, что выбранный элемент не равен null
+  if (selectedTarget) {
+    // Получаем координаты текущего касания
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - mouseX;
+    const deltaY = touch.clientY - mouseY;
+    
+    // Обновляем положение элемента
+    selectedTarget.style.left = `${selectedTarget.offsetLeft + deltaX}px`;
+    selectedTarget.style.top = `${selectedTarget.offsetTop + deltaY}px`;
+    
+    // Запоминаем координаты текущего касания для следующего события touchmove
+    mouseX = touch.clientX;
+    mouseY = touch.clientY;
+  }
+});
+
+// Добавляем событие doubletap на каждый элемент с классом "target"
+targets.forEach(target => {
+  let lastTouch = 0;
+  target.addEventListener('touchend', e => {
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTouch;
+    if (tapLength < 500 && tapLength > 0) {
+      selectedTarget = e.target;
+      selectedTarget.style.background = 'yellow';
+      selectedTarget.style.zIndex = '1000';
+    }
+    lastTouch = currentTime;
+  });
+});
+
+// Добавляем обработчик события touchstart на весь документ
+document.addEventListener('touchstart', e => {
+  // Если выбранный элемент существует и на экран опускается второй палец,
+  // то перетаскивание прекращается и элемент возвращается на исходную позицию
+  if (selectedTarget && e.touches.length > 1) {
+    selectedTarget.style.left = mouseLastX;
+    selectedTarget.style.top = mouseLastY;
+    selectedTarget.style.background = 'red';
+    selectedTarget = null;
+  }
+});
