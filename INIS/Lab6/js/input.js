@@ -93,6 +93,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ------------------6 lab
+
 targets.forEach(target => {
   target.addEventListener('touchstart', e => {
     // Запоминаем начальное местоположение касания
@@ -111,11 +112,13 @@ targets.forEach(target => {
   });
 });
 
+doubleSelected = 0
+
 // Добавляем событие touchend на каждый элемент с классом "target"
 targets.forEach(target => {
   target.addEventListener('touchend', e => {
     // Если выбранный элемент не равен null, то сбрасываем его свойства
-    if (selectedTarget) {
+    if (selectedTarget && doubleSelected == 0) {
       selectedTarget.style.zIndex = 'auto';
       selectedTarget.style.background = 'red';
       selectedTarget = null;
@@ -148,14 +151,24 @@ targets.forEach(target => {
   target.addEventListener('touchend', e => {
     const currentTime = new Date().getTime();
     const tapLength = currentTime - lastTouch;
-    if (tapLength < 500 && tapLength > 0) {
+    if(tapLength < 500 && tapLength > 0) {
       selectedTarget = e.target;
       selectedTarget.style.background = 'yellow';
       selectedTarget.style.zIndex = '1000';
+      doubleSelected = 1
+      target.addEventListener('touchend', e => {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTouch;
+        if(tapLength < 500 && tapLength > 0){
+          doubleSelected = 0;
+        }
+      });
     }
     lastTouch = currentTime;
   });
 });
+
+
 
 // Добавляем обработчик события touchstart на весь документ
 document.addEventListener('touchstart', e => {
