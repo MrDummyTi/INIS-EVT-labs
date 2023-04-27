@@ -96,19 +96,21 @@ document.addEventListener('keydown', e => {
 // Добавляем событие touchstart на каждый элемент с классом "target"
 targets.forEach(target => {
   target.addEventListener('touchstart', e => {
+    if (selectedTarget == null) {
     // Запоминаем начальное местоположение касания
-    const touch = e.touches[0];
-    mouseX = touch.clientX;
-    mouseY = touch.clientY;
+      const touch = e.touches[0];
+      mouseX = touch.clientX;
+      mouseY = touch.clientY;
 
-    // Устанавливаем текущий выбранный элемент
-    selectedTarget = e.target;
-    selectedTarget.style.zIndex = '1000';
-    selectedTarget.style.background = 'green';
+      // Устанавливаем текущий выбранный элемент
+      selectedTarget = e.target;
+      selectedTarget.style.zIndex = '1000';
+      selectedTarget.style.background = 'green';
 
-    // Запоминаем начальное положение элемента
-    mouseLastX = selectedTarget.style.left;
-    mouseLastY = selectedTarget.style.top;
+      // Запоминаем начальное положение элемента
+      mouseLastX = selectedTarget.style.left;
+      mouseLastY = selectedTarget.style.top;
+    }
   });
 });
 
