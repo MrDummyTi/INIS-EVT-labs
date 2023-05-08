@@ -434,7 +434,7 @@ a {
 .kebab_grid {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-gap: 40px;
 }
 .kebab_grid__row {
@@ -449,8 +449,8 @@ a {
 .menu-image {
   -o-object-fit: cover;
      object-fit: cover;
-  min-width: 250px;
-  min-height: 220px;
+  width: 250px;
+  height: 220px;
   padding: 20px 0 0 0;
 }
 
