@@ -1,0 +1,510 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wrapper {
+	font-family: Arial, Helvetica, sans-serif;
+	// для прижима футера к низу
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: black;
+	color: white;
+}
+
+.mainHeader {}
+
+.content {
+	flex: 1 1 auto;
+	background-color: #141414;
+}
+
+.footer {}
+
+.header_first__logo__img {}
+
+.mainHeader {}
+
+.containerWidht {
+	padding: 0 40px 0px 40px;
+}
+
+//========================= HEADER 1 =========================
+.headerfirst {
+	height: 100px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	position: relative;
+
+	&__logo {
+		&_img {
+			width: 70px;
+			height: 70px;
+		}
+	}
+
+	&__contact {
+		display: flex;
+		align-items: center;
+
+		&_icons {
+			display: flex;
+			align-items: center;
+
+			&_insta {}
+
+			&_telega {}
+		}
+
+		&__schedule {
+			padding: 0px 30px;
+
+			&_row {
+				padding: 2px 0px;
+				font-size: 16px;
+			}
+		}
+
+		&_button {
+			all: unset;
+			cursor: pointer;
+			padding: 0px 20px;
+
+
+			background-color: #ff8c05;
+			text-align: center;
+			height: 40px;
+			width: 130px;
+			border-radius: 6%;
+
+			font-weight: 700;
+		}
+	}
+
+}
+
+.headerfirst::after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	height: 1px;
+	background-color: white;
+}
+
+.telega-inst-img {
+	width: 15px;
+	height: 15px;
+}
+
+.telega-inst-img-cont {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: white;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+
+	margin: 5px;
+}
+
+.row1 {
+	font-weight: lighter;
+}
+
+.row2 {
+	font-weight: 700;
+	color: #ff8c05;
+}
+
+//========================= HEADER 2 =========================
+
+.orange-col-tran {
+	transition: color 0.5s ease 0s;
+
+	&:hover {
+		color: #ff8c05;
+	}
+
+}
+
+.headersecond {
+	display: flex;
+	height: 60px;
+	align-items: center;
+
+	&__row {
+		padding: 0 70px 0 0;
+
+		font-size: 18px;
+		font-weight: 500;
+		cursor: pointer;
+	}
+}
+
+.headersecond__row {
+	position: relative;
+
+
+	.menuCheck {
+		display: none;
+		cursor: default;
+		position: absolute;
+
+		z-index: 1;
+
+		// transform: opacity 0.5s ease, visibility 0.5s ease;
+		// opacity: 0;
+		// visibility: hidden;
+
+		// top: 100%;
+		top: 30px;
+		left: -20px;
+		background-color: #2d2b2b;
+		margin: -10px 0 0 0;
+		padding: 20px 15px 0px 15px;
+		border: 1px solid rgb(49, 48, 48);
+
+		li {
+			color: white;
+			font-size: 14px;
+			margin: 0 0px 20px 0;
+		}
+	}
+
+	&:hover {
+		.menuCheck {
+			display: block;
+			// opacity: 1;
+			// visibility: visible;
+		}
+	}
+}
+
+//========================= CONTENT - SLIDER =========================
+.all-slider {
+	margin: -20px 0px 20px 0;
+}
+
+
+#slider{
+	/*положение слайдера*/
+	position: relative;
+	text-align: center;
+	top: 10px;
+}
+
+#slides {
+	/*центровка слайдера*/
+	margin: 0 auto;
+}
+
+.image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#slides article {
+	/*все изображения справа друг от друга*/
+	width: 50%;
+	max-height: 480px;
+	// float: left;
+}
+
+#slides .image {
+	/*устанавливает общий размер блока с изображениями*/
+	width: 200%;
+	line-height: 0;
+	text-align: center;
+}
+
+#overflow {
+	/*скрывает все, что находится за пределами этого блока*/
+	width: 100%;
+	max-height: 480px;
+	overflow: hidden;
+}
+
+article img {
+	/*размер изображений слайдера*/
+	width: 100%;
+	height: 100%;
+}
+
+#desktop:checked~#slider {
+	/*размер всего слайдера*/
+	max-width: 100%;
+	/*максимальнная длинна*/
+}
+
+label,
+a {
+	/*при наведении на стрелки или переключатели - курсор изменится*/
+	cursor: pointer;
+}
+
+.all-slider input {
+	/*скрывает стандартные инпуты (чекбоксы) на странице*/
+	display: none;
+}
+
+#switch1:checked~#slides .image {
+	margin-left: 0;
+}
+
+#switch2:checked~#slides .image {
+	margin-left: -100%;
+}
+
+#controls {
+	/*положение блока всех управляющих элементов*/
+	margin: -25% 0 0 0;
+	width: 100%;
+}
+
+#active label {
+	/*стиль отдельного переключателя*/
+	border-radius: 10px;
+	/*скругление углов*/
+	display: inline-block;
+	/*расположение в строку*/
+	margin: 0 3px;
+	width: 10px;
+	height: 10px;
+	border: 2px solid white;
+}
+
+#active {
+	/*расположение блока с переключателями*/
+	margin: 23% 0 0;
+	text-align: center;
+}
+
+#active label:hover {
+	/*поведение чекбокса при наведении*/
+	background: #ffffff;
+}
+
+/*цвет активного лейбла при активации чекбокса*/
+#switch1:checked~#active label:nth-child(1),
+#switch2:checked~#active label:nth-child(2) {
+	background: #ffffff;
+}
+
+#slides .image {
+	/*анимация пролистывания изображений*/
+	// animation: ani 1s ease forwards;
+	transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+	// transition: all 1s ease forwards;
+}
+
+#controls label:hover {
+	/*прозрачность стрелок при наведении*/
+	opacity: 0.6;
+}
+
+#controls label {
+	/*прозрачность стрелок при отводе курсора*/
+	transition: opacity 0.2s ease-out;
+}
+
+//========================= CONTAINER - MENU =========================
+.containerMain {
+	max-width: 1270px;
+	margin: 0 auto;
+	padding: 75px 4% 0 4%;
+}
+
+//========================= MENU - CHOICE ============================
+.menu-title-main {
+	font-size: 47px;
+	font-weight: 600;
+	padding: 0 0 20px 0;
+}
+
+.orange {
+	color: #ff8c05;
+}
+
+.menu-title-choice {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.choice_food {
+	padding: 20px 0 100px 30px;
+	display: grid;
+	justify-items: left;
+	grid-template: 1fr / minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr) 3fr;
+	
+	&__row {
+		display: grid;
+		grid-template: 1fr 10px/ 1fr;
+		justify-items: center;
+	}
+}
+
+//========================= MENU - KEBAB ============================
+
+.title-content {font-size: 26px;font-weight: 600;}
+.kebab{padding: 0 0 100px 0;}
+.kebab_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 40px;
+	&__row {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template: auto 50px minmax(50px, auto) 1fr 40px 50px / 1fr;
+		// grid-template: minmax(250px, 1fr) 50px minmax(50px, 120px) 30px 39px 50px/ 1fr ;
+	}
+}
+.menu-image {
+	object-fit: cover;
+	min-width: 250px;
+	min-height: 220px;
+
+	padding: 20px 0 0 0;
+}
+
+.lanch-box{
+	object-fit: cover;
+	width: 180px;
+	height: 250px;
+	padding: 20px 0;
+	position: relative;
+	left: 25px;
+}
+
+.menu-title {
+	font-size: 18px;
+	font-weight: 600;
+	padding: 20px 0 15px 0;
+	color: #ff8c05;
+}
+.menu-dedescription {
+	font-size: 14px;
+	line-height: 1.5;
+	padding: 10px 0 15px 0;
+	// font-weight: 200;
+}
+.menu-price {
+	font-size: 20px;
+	font-weight: 600;
+	padding: 0 0 30px 0;
+}
+.menu-description-selected {
+	padding: 0 0 10px 0;	
+}
+.menu-selected {}
+.menu-button {
+	border-radius: 8px;
+	width: 130px;
+	height: 40px;
+	background-color:#ff8c05;
+	color: white;
+}
+
+//========================= MENU - DRINK ============================
+.drinkables{padding: 0 0 100px 0;}
+.drinkables_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 40px;
+	&__row {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template: 4fr 50px minmax(50px, auto) 1fr / 1fr;
+	}
+}
+
+.menu-image-dr{
+	object-fit: cover;
+	min-width: 70%;
+	min-height: 100%;
+
+	padding: 20px 0 0 0;
+}
+
+//========================= MENU - HOT-DRINK ============================
+
+.hotdrink{padding: 0 0 100px 0;}
+
+.hotdrink_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 40px;
+	&__row {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template: 4fr 50px minmax(50px, auto) 1fr / 1fr;
+	}
+}
+
+//========================= CONTENT  -  ABOUT ============================
+
+.content__about{
+	max-width: 500px;
+	margin: 0 auto;
+
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0 50px 0;
+
+}
+
+//========================= CONTENT  -  COMPANY ============================
+.content__company{
+	display: flex;
+	flex-direction: column;
+	&_row{
+		max-width: 300px;
+		margin: 0 auto;
+		color: gray;
+	}
+	padding: 0 0 50px 0;
+}
+
+//========================= FOOTER ============================
+
+.footer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	cursor: pointer;
+
+	height: 70px;
+	background-color: black;
+	color: grey;
+}
+.madeby{
+}
+.madeby-icon{
+	width: 50px;
+  	height: 50px;
+  	background-image: url('img/brain.png');
+  	background-size: cover;
+}
+
+.footer:hover{
+	color: white;
+}
